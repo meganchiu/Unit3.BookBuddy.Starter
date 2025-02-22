@@ -6,14 +6,13 @@ import SingleBook from './components/SingleBook'
 
 function App() {
   const [token, setToken] = useState(null)
-  const [books, setBooks] = useState([])
 
   return (
     <>
-      <Routes>
-        <Route path='/' element={<Books />} />
-        <Route path='/books/:id' element={<SingleBook />} />
-      </Routes>
+    <Routes>
+      <Route path='/' element={<Books />} />
+      <Route path='/books/:id' element={<SingleBook />} />
+    </Routes>
     </>
   )
 }

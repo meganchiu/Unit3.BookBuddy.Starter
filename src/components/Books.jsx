@@ -1,12 +1,11 @@
-import { fetchAllBooks } from "../API/index.js"
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react"
+import { fetchAllBooks } from "../API";
 import SingleBook from "./SingleBook.jsx";
-
 export default function Books() {
   const [books, setBooks] = useState([]);
-  
+
   useEffect(() => {
-      const getBooks = async () => {
+    const getBooks = async () => {
         try {
         const data = await fetchAllBooks();
         console.log('books data => ', data.books)

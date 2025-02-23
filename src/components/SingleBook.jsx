@@ -1,39 +1,37 @@
-import { fetchSingleBook } from "../API/index.js"
-import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { fetchSingleBook } from "../API";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function SingleBook({bookId}) {
   const [book, setBook] = useState([]);
-  let { id } = useParams();
-  const navigate = useNavigate();
+  let {id} = useParams();
+  let navigate = useNavigate();
 
-  useEffect(() => { 
-    const getBook = async() => {
+  useEffect(() => {
+    const getBook = async () => {
       try {
         const data = await fetchSingleBook(bookId || id);
-        console.log('single book data => ', data.book);
+        console.log('data.book ', data)
         setBook(data.book);
       } catch (error) {
         console.error(error);
       }
     }
     getBook();
-  }, [])
+  }, []);
 
   return (
     <>
-      <div>
-        {id ? (
+      {
+        id ? (
           <div>
-            <h1><b>Title: </b>{book.title}</h1>
-            <h1><b>Author: </b>{book.author}</h1>
-            <p><b>Description: </b>{book.description}</p>
-            <button onClick={() => navigate('/')}>Back to All Books</button>
+            <h1>{book.title}</h1>
+            <button onClick={() => navigate('/')}>Go Back</button>
           </div>
         ) : (
-          <button onClick={() => navigate(`/books/${bookId}`)}>See Details</button>
-        )}
-      </div>
+          <button onClick={()=> navigate(`/books/${bookId}`)}>See Details</button>
+        )
+      }
     </>
   )
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { fetchAllBooks } from "../API";
+import { fetchAllBooks } from "../API/index.js";
 import SingleBook from "./SingleBook.jsx";
 export default function Books() {
   const [books, setBooks] = useState([]);

@@ -8,6 +8,7 @@ export default function Account() {
   const [user, setUser] = useState({});
   const {token, setToken} = useAuth();
   let navigate = useNavigate();
+  const [userBooksArr, setUserBooksArr] = useState([]);
 
   async function returnBook(bookId) {
     try {
@@ -20,7 +21,25 @@ export default function Account() {
           }
         }
       )
-      navigate("/");
+      getReservations();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function getReservations() {
+    try {
+      const response = await fetch(`${RESERVATIONS_API_URL}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          }
+        }
+      )
+      const data = await response.json();
+      setUserBooksArr(data.reservation);
+      console.log('reserved books => ', userBooksArr);
     } catch (error) {
       console.error(error);
     }
@@ -39,14 +58,13 @@ export default function Account() {
           )
           const data = await response.json();
           setUser(data)
+          getReservations();
         } catch (error) {
           console.error("Error fetching info for user.", error)
         }
       }
     getUser();
   }, []);
-
-  let userBooksArr = user.books;
 
   return (
     <>

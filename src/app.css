@@ -1,10 +1,12 @@
 .bookContainer {
   display: grid;
   grid-template-columns: auto auto auto;
+  justify-content: center;
 }
 .bookCard {
   border: 1px solid black;
   width: 500px;
+  padding: 10px;
   margin: 10px;
 }
 

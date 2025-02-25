@@ -7,6 +7,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Navigations from './components/Navigations'
 import Account from './components/Account'
+import './app.css'
 
 function App() {
   const [token, setToken] = useState(null)

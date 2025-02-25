@@ -1,0 +1,14 @@
+.bookContainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.bookCard {
+  border: 1px solid black;
+  width: 500px;
+  margin: 10px;
+}
+
+.bookCardImg {
+  width: 400px;
+  height: 550px;
+}

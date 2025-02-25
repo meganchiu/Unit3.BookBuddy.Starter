@@ -12,3 +12,34 @@
   width: 400px;
   height: 550px;
 }
+
+#navBar {
+  height: 150px;
+  border: 1px solid black;
+  margin: 5px;
+  justify-items: center;
+  align-content: center;
+  background-color: lightpink;
+}
+
+a {
+  font-size: 50px;
+  margin: 20px;
+}
+
+.singleBookDetailsCard {
+  justify-items: center;
+}
+
+.singleBookDetailsCard div {
+  margin: 20px;
+  padding: 25px;
+  width: 600px;
+  border: 1px solid black;
+  display: grid;
+}
+
+.singleBookDetailsCard div button {
+  width: 200px;
+  justify-self: center;
+}

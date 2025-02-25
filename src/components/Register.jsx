@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../components/AuthContext.jsx"
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const USER_API_URL = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users"
@@ -8,13 +9,10 @@ export default function Register() {
   const [lastname, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
+  let navigate = useNavigate();
+
   async function registerUser(event) {
     event.preventDefault();
-
-    console.log({firstname});
-    console.log({lastname});
-    console.log({email});
 
     try {
       let formData = {
@@ -33,11 +31,12 @@ export default function Register() {
       );
       const data = await response.json();
 
-      console.log(data);
-
       if (data.token) {
         // Store the JWT token
         setToken(data.token);
+
+        // Redirct to Account page after setting token and logging in
+        navigate("/account");
 
         // Reset form after successful submission
         setFirstName("");

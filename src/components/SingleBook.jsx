@@ -43,18 +43,21 @@ export default function SingleBook({bookId}) {
     <>
       {
         id ? (
-          <div>
-            <h2>Title: {book.title}</h2>
-            <h2>Author: {book.author}</h2>
-            <p><b>Description: </b>{book.description}</p>
-            {
-              token ? 
-                (<button onClick={reserveBook}>Check Out Book</button>) :
-                (<h1>Not Logged In</h1>)
-            } 
-            <br/>
-            <br/>
-            <button onClick={() => navigate('/')}>Go Back</button>
+          <div className="singleBookDetailsCard">
+            <div>
+              <h2>Title: {book.title}</h2>
+              <h2>Author: {book.author}</h2>
+              <p><b>Description: </b>{book.description}</p>
+              <br/>
+              {
+                token ? 
+                  (<button onClick={reserveBook}>Check Out Book</button>) :
+                  (<p><b>You must have an account to reserve books.</b></p>)
+              } 
+              <br/>
+              <br/>
+              <button onClick={() => navigate('/')}>Go Back</button>
+            </div>
           </div>
         ) : (
           <button onClick={()=> navigate(`/books/${bookId}`)}>See Details</button>

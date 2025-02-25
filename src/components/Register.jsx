@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { registerUser } from "../API/index.js";
+import { useAuth } from "../components/AuthContext.jsx"
+
 export default function Register() {
-  const [token, setToken] = useState('');
+  const USER_API_URL = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users"
+  const {token, setToken} = useAuth();
   const [firstname, setFirstName] = useState('');
   const [lastname, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -22,7 +24,7 @@ export default function Register() {
         password
       };
       const response = await fetch(
-        'https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/register', 
+        `${USER_API_URL}/register`, 
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

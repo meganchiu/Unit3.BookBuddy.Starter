@@ -35,6 +35,9 @@ export default function SingleBook({bookId}) {
             }
           )
           const data = response.json();
+          if (response.ok) {
+            setBook((prevBook) => ({ ...prevBook, available: false })); // Update local state
+          }
         } catch (error) {
           console.error(error);
         }
@@ -51,7 +54,9 @@ export default function SingleBook({bookId}) {
               <br/>
               {
                 token ? 
-                  (<button onClick={reserveBook}>Check Out Book</button>) :
+                  (<button onClick={reserveBook} disabled={!book.available}>
+                    {book.available ? "Check Out Book" : "Checked Out" }
+                  </button>) :
                   (<p><b>You must have an account to reserve books.</b></p>)
               } 
               <br/>

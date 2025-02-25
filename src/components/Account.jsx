@@ -39,7 +39,6 @@ export default function Account() {
       )
       const data = await response.json();
       setUserBooksArr(data.reservation);
-      console.log('reserved books => ', userBooksArr);
     } catch (error) {
       console.error(error);
     }

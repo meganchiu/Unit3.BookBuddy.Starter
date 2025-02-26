@@ -69,6 +69,17 @@ a {
   padding: 25px;
 }
 
+#errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.errorMessage {
+  font-size: 40px;
+  color: red;
+}
+
 #loginForm, #registerForm {
   background: lightgrey;
   padding: 20px;
@@ -119,5 +130,5 @@ a {
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
-  background-color: ;
+  background-color: lightseagreen ;
 }

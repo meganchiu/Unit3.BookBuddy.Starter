@@ -8,9 +8,12 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const {token, setToken} = useAuth();
   let navigate = useNavigate();
+  const [error, setError] = useState("");
 
   async function loginUser(event) {
     event.preventDefault();
+    setError("");
+
     try {
       let formData = {
         email,
@@ -24,6 +27,7 @@ export default function Login() {
         }
       )
       const data = await response.json();
+      
       if (data.token) {
         // Store the JWT token
         setToken(data.token);
@@ -35,7 +39,7 @@ export default function Login() {
         setEmail("");
         setPassword("");
       } else {
-        throw new Error("Failed to signup.");
+        setError("Invalid email or password. Try again.");
       }
     } catch (error) {
       console.error
@@ -56,6 +60,10 @@ export default function Login() {
           <br/>
           <button id="loginBtn">Login</button>
         </form>
+      </div>
+      <br/>
+      <div id="errorContainer">
+        {error && <p className="errorMessage">{error}</p>}
       </div>
     </>
   )

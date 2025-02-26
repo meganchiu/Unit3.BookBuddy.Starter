@@ -10,7 +10,6 @@ export default function Books() {
         try {
           const response = await fetch(BOOKS_API_URL)
           const data = await response.json();
-          console.log(data.books);
           setBooks(data.books);
         } catch (error) {
           console.error("Error fetching all books.", error)

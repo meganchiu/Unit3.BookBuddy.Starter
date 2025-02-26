@@ -71,11 +71,15 @@ export default function Account() {
 
   return (
     <>
-      <div>
-        <h1>First Name: {user.firstname}</h1>
-        <h1>Last Name: {user.lastname}</h1>
-        <h1>Email: {user.email}</h1>
+      <div id="accountContainer">
+        <div id="userAccountInfo">
+          <h1>Account Info</h1>
+          <p><b>First Name: </b>{user.firstname}</p>
+          <p><b>Last Name: </b>{user.lastname}</p>
+          <p><b>Email: </b>{user.email}</p>
+        </div>
         <div id='checkedOutBooks'>
+          {userBooksArr && userBooksArr.length > 0 ? (<h1>Checked Out Books</h1>) : (<h1></h1>)}
           { userBooksArr && userBooksArr.length > 0 ? (
             userBooksArr.map((book) => (
             <div key={book.id} className="userCheckedOutBook">

@@ -14,6 +14,7 @@ export default function Books() {
       try {
         const response = await fetch(BOOKS_API_URL);
         const data = await response.json();
+        console.log(data.books);
         setBooks(data.books);
         setFilteredBooks(data.books); // Initially, filteredBooks should have all books
       } catch (error) {
@@ -52,6 +53,7 @@ export default function Books() {
                   e.target.src = defaultImg;
                 }}
               />
+              {book.available ? <p id="bookAvailableTxt">Available</p> : <p id="bookNotAvailableTxt">Not Available</p>}
               <br />
               <SingleBook bookId={book.id} />
             </div>

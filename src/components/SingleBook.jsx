@@ -36,7 +36,7 @@ export default function SingleBook({bookId}) {
           )
           const data = response.json();
           if (response.ok) {
-            setBook((prevBook) => ({ ...prevBook, available: false })); // Update local state
+            setBook((prevBook) => ({ ...prevBook, available: false }));
           }
         } catch (error) {
           console.error(error);

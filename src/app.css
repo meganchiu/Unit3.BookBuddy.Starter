@@ -46,14 +46,14 @@ a {
   justify-self: center;
 }
 
-#loginContainer {
+#loginContainer, #registerContainer {
   display: flex;
-  justify-content: center;  /* Centers horizontally */
+  justify-content: center;
   align-items: center; 
   padding: 25px;
 }
 
-#loginForm {
+#loginForm, #registerForm {
   background: lightgrey;
   padding: 20px;
   border-radius: 10px;
@@ -63,11 +63,42 @@ a {
   width: 600px;
 }
 
-.loginLabel, .loginInput, #loginBtn{
+.loginLabel, .loginInput, #loginBtn, .registerLabel, .registerInput, #registerBtn{
   font-size: 50px;
 }
 
-#loginBtn {
+#loginBtn, #registerBtn {
   border-radius: 10px;
   width: 200px;
+}
+
+#accountContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#userAccountInfo {
+  border: 1px solid black;
+  padding: 10px;
+  width: 500px;
+  justify-items: center;
+  border-radius: 10px;
+  background-color: lightgrey;
+}
+
+#checkedOutBooks {
+  background-color: lightskyblue;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 500px;
+  padding: 10px;
+}
+
+.userCheckedOutBook {
+  border: 1px solid black;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
 }

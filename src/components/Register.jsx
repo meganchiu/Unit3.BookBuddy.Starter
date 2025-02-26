@@ -53,25 +53,27 @@ export default function Register() {
 
   return (
     <>
-      <form id="registerForm" onSubmit={registerUser}>
-        <label>
-          First Name: <input id="firstname" value={firstname} onChange={(event) => {setFirstName(event.target.value)}} />
-        </label>
-        <br/>
-        <label>
-          Last Name: <input id="lastname" value={lastname} onChange={(event) => {setLastName(event.target.value)}} />
-        </label>
-        <br/>
-        <label>
-          Email: <input id="email" value={email} onChange={(event) => {setEmail(event.target.value)}} />
-        </label>
-        <br/>
-        <label>
-          Password: <input type="password" id="password" value={password} onChange={(event) => {setPassword(event.target.value)}} />
-        </label>
-        <br/>
-        <button>Submit</button>
-      </form>
+      <div id="registerContainer">
+        <form id="registerForm" onSubmit={registerUser}>
+          <label class="registerLabel">
+            First Name: <input class="registerInput" id="firstname" value={firstname} onChange={(event) => {setFirstName(event.target.value)}} required/>
+          </label>
+          <br/>
+          <label class="registerLabel">
+            Last Name: <input class="registerInput" id="lastname" value={lastname} onChange={(event) => {setLastName(event.target.value)}} required/>
+          </label>
+          <br/>
+          <label class="registerLabel">
+            Email: <input class="registerInput" id="email" value={email} onChange={(event) => {setEmail(event.target.value)}} required/>
+          </label>
+          <br/>
+          <label class="registerLabel">
+            Password:<input class="registerInput" type="password" id="password" value={password} onChange={(event) => {setPassword(event.target.value)}} required/>
+          </label>
+          <br/>
+          <button id="registerBtn">Submit</button>
+        </form>
+      </div>
     </>
   );
 }

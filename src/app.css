@@ -45,3 +45,29 @@ a {
   width: 200px;
   justify-self: center;
 }
+
+#loginContainer {
+  display: flex;
+  justify-content: center;  /* Centers horizontally */
+  align-items: center; 
+  padding: 25px;
+}
+
+#loginForm {
+  background: lightgrey;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+}
+
+.loginLabel, .loginInput, #loginBtn{
+  font-size: 50px;
+}
+
+#loginBtn {
+  border-radius: 10px;
+  width: 200px;
+}

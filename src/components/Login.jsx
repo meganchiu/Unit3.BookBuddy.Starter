@@ -44,15 +44,19 @@ export default function Login() {
 
   return (
     <>
-      <form id="loginForm" onSubmit={loginUser}>
-        <label>
-          Email: <input value={email} onChange={()=>{setEmail(event.target.value)}} />
-        </label>
-        <label>
-          Password: <input type='password' value={password} onChange={()=>{setPassword(event.target.value)}} />
-        </label>
-        <button>Login</button>
-      </form>
+      <div id="loginContainer">
+        <form id="loginForm" onSubmit={loginUser}>
+          <label className="loginLabel">
+            Email: <input className="loginInput" value={email} onChange={()=>{setEmail(event.target.value)}} required/>
+          </label>
+          <br/>
+          <label className="loginLabel">
+            Password: <input type='password' className="loginInput" value={password} onChange={()=>{setPassword(event.target.value)}} required/>
+          </label>
+          <br/>
+          <button id="loginBtn">Login</button>
+        </form>
+      </div>
     </>
   )
 }

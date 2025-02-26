@@ -65,7 +65,7 @@ export default function SingleBook({bookId}) {
             </div>
           </div>
         ) : (
-          <button onClick={()=> navigate(`/books/${bookId}`)}>See Details</button>
+          <button className="seeDetailsBtn" onClick={()=> navigate(`/books/${bookId}`)}>See Details</button>
         )
       }
     </>

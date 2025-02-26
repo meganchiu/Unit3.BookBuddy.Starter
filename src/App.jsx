@@ -7,6 +7,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Navigations from './components/Navigations'
 import Account from './components/Account'
+import Logout from './components/Logout'
 import './app.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/account' element={<Account />} />
+        <Route path='/logout' element={<Logout />} />
       </Routes>
     </>
   )

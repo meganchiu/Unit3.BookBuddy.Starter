@@ -13,6 +13,7 @@ export default function Navigations() {
           <div>
             <Link to="/">Home</Link>
             <Link to="/account">Account</Link>
+            <Link to="/logout">Logout</Link>
             </div>
           ) : (
             <div>

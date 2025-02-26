@@ -10,6 +10,7 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   let navigate = useNavigate();
+  const [error, setError] = useState('');
 
   async function registerUser(event) {
     event.preventDefault();
@@ -44,7 +45,7 @@ export default function Register() {
         setEmail("");
         setPassword("");
       } else {
-        throw new Error("Failed to signup.");
+        setError(data.message);
       }
     } catch (error) {
       console.error(error);
@@ -73,6 +74,9 @@ export default function Register() {
           <br/>
           <button id="registerBtn">Submit</button>
         </form>
+      </div>
+      <div id="errorContainer">
+        {error && <p className="errorMessage">{error}</p>}
       </div>
     </>
   );
